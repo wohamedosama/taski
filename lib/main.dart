@@ -18,9 +18,16 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple,
+          centerTitle: true,
+          title: const Text(
+            'Taski App',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          backgroundColor: const Color(0xff9990FF),
         ),
       ),
     );

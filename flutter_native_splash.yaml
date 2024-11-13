@@ -1,0 +1,16 @@
+# flutter_native_splash-development.yaml
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+  color : "FFFFFF"
+  image: "assets/images/Black.png"
+  #branding: "assets/images/Frame 1.png"
+  
+  android_12:
+    icon_background_color: "#FFFFFF"
+    image: "assets/images/Black.png"
+    #branding: "assets/images/Note-Taking App.png"  
+
+
