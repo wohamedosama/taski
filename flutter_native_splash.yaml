@@ -4,13 +4,12 @@ flutter_native_splash:
   ios: true
   web: false
 
-  color : "FFFFFF"
-  image: "assets/images/Black.png"
-  #branding: "assets/images/Frame 1.png"
+  color: "FFFFFF"
+  color_dark: "121212"
+  image: "assets/images/splash/splash2.png"
   
   android_12:
     icon_background_color: "#FFFFFF"
-    image: "assets/images/Black.png"
-    #branding: "assets/images/Note-Taking App.png"  
-
+    color_dark: "121212"
+    image: "assets/images/splash/splash2.png"
 

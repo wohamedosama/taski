@@ -5,7 +5,7 @@ import 'package:taski/screens/onboarding_screen.dart';
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  Future.delayed(const Duration(seconds: 3));
+  Future.delayed(const Duration(seconds: 20));
   FlutterNativeSplash.remove();
   runApp(const MyApp());
 }

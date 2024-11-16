@@ -12,7 +12,9 @@ class OnboardingScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(22),
         child: PageView.builder(
-          itemBuilder: (context, index) {},
+          itemBuilder: (context, index) {
+            return null;
+          },
         ),
       ),
     );
