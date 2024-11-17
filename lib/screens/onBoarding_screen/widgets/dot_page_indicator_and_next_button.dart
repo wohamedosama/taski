@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/screens/onBoarding_screen/widgets/next_button.dart';
 import 'package:taski/screens/onBoarding_screen/widgets/smooth_page_indicator.dart';
 
@@ -21,12 +22,16 @@ class DotPageIndicatorAndNextButton extends StatelessWidget {
         DotPageIndecator(controller: pageController),
         //! Next button
         NextButtonOrGetStartedButton(
-          onPressed: () {
-            pageController.nextPage(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOutCubicEmphasized);
-          },
           isLastPage: isLastPage,
+          onPressed: () {
+            if (isLastPage) {
+              Navigator.pushNamed(context, homeScreen);
+            } else {
+              pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOutCubicEmphasized);
+            }
+          },
         ),
       ],
     );

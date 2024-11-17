@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/models/onboarding/onboarding_info.dart';
 import 'package:taski/models/onboarding/onboarding_model.dart';
 import 'package:taski/screens/onBoarding_screen/widgets/boarding_item.dart';
@@ -41,7 +42,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 //! skip button
                 SkipButton(onPressed: () {
-                  pageController.jumpToPage(boardingList.length - 1);
+                  Navigator.pushNamed(context, homeScreen);
+
+                  //pageController.jumpToPage(boardingList.length - 1);
                 }),
 
                 //! boarding item
@@ -64,17 +67,5 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ),
     );
-  }
-}
-
-void onPageChanged(int index) {
-  if (index == boardingList.length - 1) {
-    setState(() {
-      isLastPage = true;
-    });
-  } else {
-    setState(() {
-      isLastPage = false;
-    });
   }
 }

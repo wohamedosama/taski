@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:taski/screens/onBoarding_screen/onboarding_screen.dart';
+import 'package:taski/routes/app_router.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.delayed(const Duration(seconds: 20));
   FlutterNativeSplash.remove();
-  runApp(const MyApp());
+  runApp(Taski(
+    approuters: AppRouters(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Taski extends StatelessWidget {
+  const Taski({
+    super.key,
+    required this.approuters,
+  });
 
+  final AppRouters approuters;
   @override
 
   // This widget is the root of your application.
@@ -21,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: OnboardingScreen(),
+      onGenerateRoute: approuters.generateRoute,
     );
   }
 }
