@@ -7,6 +7,6 @@ class OnboardingItem {
   List<OnboardingModel> boarding = [
     OnboardingModel(image: onboarding1, title: title1, subtitle: subtitle1),
     OnboardingModel(image: onboarding2, title: title2, subtitle: subtitle2),
-    OnboardingModel(image: onboarding2, title: title3, subtitle: subtitle3),
+    OnboardingModel(image: onboarding3, title: title3, subtitle: subtitle3),
   ];
 }
