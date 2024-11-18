@@ -14,10 +14,13 @@ class DotPageIndecator extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomLeft,
       child: SmoothPageIndicator(
-        controller: controller,
-        count: count,
-        effect: const JumpingDotEffect(),
-      ),
+          controller: controller,
+          count: count,
+          effect: const WormEffect(
+            activeDotColor: Color(0xff8875FF),
+            dotColor: Color.fromARGB(255, 140, 135, 177),
+            dotWidth: 22,
+          )),
     );
   }
 }
