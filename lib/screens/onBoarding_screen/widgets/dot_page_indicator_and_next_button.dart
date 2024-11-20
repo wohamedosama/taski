@@ -25,7 +25,7 @@ class DotPageIndicatorAndNextButton extends StatelessWidget {
           isLastPage: isLastPage,
           onPressed: () {
             if (isLastPage) {
-              Navigator.pushNamed(context, homeScreen);
+              Navigator.pushNamed(context, navbar);
             } else {
               pageController.nextPage(
                   duration: const Duration(milliseconds: 300),

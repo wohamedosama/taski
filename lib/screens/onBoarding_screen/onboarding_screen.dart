@@ -42,7 +42,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 //! skip button
                 SkipButton(onPressed: () {
-                  Navigator.pushNamed(context, homeScreen);
+                  Navigator.pushNamed(context, navbar);
 
                   //pageController.jumpToPage(boardingList.length - 1);
                 }),

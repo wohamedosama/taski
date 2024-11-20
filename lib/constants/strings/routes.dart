@@ -1,2 +1,2 @@
 const String onboardingScreen = '/';
-const String homeScreen = '/home';
+const String navbar = '/navBar';
