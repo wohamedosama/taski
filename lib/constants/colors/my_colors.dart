@@ -11,4 +11,5 @@ class MyColors {
   static const Color hintTextstyle = Color(0xffAFAFAF);
   static const Color borderSideTextFailed = Color(0xff000000);
   static const Color warning = Color(0xFFF57C00);
+  static const Color navBarColor = Color(0xff363636);
 }

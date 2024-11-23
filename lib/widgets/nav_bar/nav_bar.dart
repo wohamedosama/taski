@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/widgets/nav_bar/nav_bar_item.dart';
 
 // ignore: must_be_immutable
@@ -19,7 +20,8 @@ class NavBar extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       hideNavigationBarWhenKeyboardAppears: true,
       padding: const EdgeInsets.only(top: 8),
-      backgroundColor: const Color(0xff363636),
+      backgroundColor: MyColors.navBarColor,
+
       isVisible: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(

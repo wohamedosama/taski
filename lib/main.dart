@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:taski/constants/theme/app_theme.dart';
 import 'package:taski/routes/app_router.dart';
 
 void main() async {
@@ -26,7 +27,7 @@ class Taski extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
+      theme: AppTheme.lightTheme,
       onGenerateRoute: approuters.generateRoute,
     );
   }

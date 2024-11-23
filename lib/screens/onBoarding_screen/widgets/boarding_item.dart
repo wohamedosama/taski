@@ -21,7 +21,7 @@ class BoardingItem extends StatelessWidget {
         const SizedBox(height: 30),
         OnBoardingTitleAndSubtitleText(
           text: title,
-          color: Colors.black,
+          // color: Colors.black,
           fontSize: 28,
           fontWeight: FontWeight.w500,
           //    boardingList[index].title!,
@@ -31,7 +31,7 @@ class BoardingItem extends StatelessWidget {
           height: 80,
           child: OnBoardingTitleAndSubtitleText(
             text: subtitle,
-            color: Colors.black,
+            //color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.w300,
             //   boardingList[index].subtitle!,
