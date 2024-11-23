@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taski/constants/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text('Home'),
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xff8687E7),
+        backgroundColor: AppTheme.lightTheme.primaryColor,
       ),
     );
   }
