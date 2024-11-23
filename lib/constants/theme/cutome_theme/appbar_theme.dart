@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 
 class AppBarAppTheme {
-  static AppBarTheme lightAppBarTheme = AppBarTheme(
+  static AppBarTheme lightAppBarTheme = const AppBarTheme(
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
@@ -16,7 +16,7 @@ class AppBarAppTheme {
       fontWeight: FontWeight.normal,
     ),
   );
-  static AppBarTheme darkAppBarTheme = AppBarTheme(
+  static AppBarTheme darkAppBarTheme = const AppBarTheme(
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
