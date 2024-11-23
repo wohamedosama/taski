@@ -11,10 +11,21 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: MyColors.primaryColor,
-    scaffoldBackgroundColor: MyColors.scaffoldBackgroundColor,
+    scaffoldBackgroundColor: MyColors.lightColor,
     elevatedButtonTheme: ElevatedButtonAppTheme.lightElevatedButtonThemeData,
     appBarTheme: AppBarAppTheme.lightAppBarTheme,
     inputDecorationTheme: TextFormFieldAppTheme.lightInputDecorationTheme,
     textTheme: AppTextTheme.lightColorTextTheme,
+  );
+  static ThemeData darkTheme = ThemeData(
+    fontFamily: 'Lato',
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    primaryColor: MyColors.primaryColor,
+    scaffoldBackgroundColor: MyColors.darkColor,
+    elevatedButtonTheme: ElevatedButtonAppTheme.darktElevatedButtonThemeData,
+    appBarTheme: AppBarAppTheme.darkAppBarTheme,
+    inputDecorationTheme: TextFormFieldAppTheme.datkInputDecorationTheme,
+    textTheme: AppTextTheme.darkColorTextTheme,
   );
 }
