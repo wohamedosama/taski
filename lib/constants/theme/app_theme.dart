@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/constants/theme/cutome_theme/appbar_theme.dart';
 import 'package:taski/constants/theme/cutome_theme/elevated_button_theme.dart';
+import 'package:taski/constants/theme/cutome_theme/floating_action_button_theme.dart';
 import 'package:taski/constants/theme/cutome_theme/text_field_theme.dart';
 import 'package:taski/constants/theme/cutome_theme/text_theme.dart';
 
@@ -16,6 +17,8 @@ class AppTheme {
     appBarTheme: AppBarAppTheme.lightAppBarTheme,
     inputDecorationTheme: TextFormFieldAppTheme.lightInputDecorationTheme,
     textTheme: AppTextTheme.lightColorTextTheme,
+    floatingActionButtonTheme:
+        FloatingactionButtonAppTheme.lightFloatingActionButtonAppTheme,
   );
   static ThemeData darkTheme = ThemeData(
     fontFamily: 'Lato',
@@ -27,5 +30,7 @@ class AppTheme {
     appBarTheme: AppBarAppTheme.darkAppBarTheme,
     inputDecorationTheme: TextFormFieldAppTheme.datkInputDecorationTheme,
     textTheme: AppTextTheme.darkColorTextTheme,
+    floatingActionButtonTheme:
+        FloatingactionButtonAppTheme.darkFloatingActionButtonAppTheme,
   );
 }

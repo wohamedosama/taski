@@ -27,7 +27,7 @@ class Taski extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
       onGenerateRoute: approuters.generateRoute,
     );
   }
