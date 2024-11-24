@@ -1,6 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:taski/constants/colors/my_colors.dart';
+import 'package:taski/screens/onBoarding_screen/widgets/cutom_text_field.dart';
 
 class AddTaskScreen extends StatelessWidget {
   AddTaskScreen({super.key});
@@ -19,27 +22,24 @@ class AddTaskScreen extends StatelessWidget {
         child: Column(
           children: [
             // ! Task Form Field
-            TextField(
-              onChanged: (addTaskValue) {},
+            CustomTextField(
               controller: addTaskController,
-              autofocus: true,
-              decoration: InputDecoration(
-                  hintText: 'Add Your Task Title',
-                  hintStyle: Theme.of(context).textTheme.titleLarge),
+              hintText: 'Add Your Task Title',
+              onChanged: (addTaskValue) {},
+              autoFoucus: true,
+              hintStyle: Theme.of(context).textTheme.titleLarge,
             ),
-
             const SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Description',
-                alignLabelWithHint: true,
-                hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(),
-              ),
-              maxLines: 4,
+            CustomTextField(
               controller: descriptionController,
+              hintText: 'Description',
+              mixLins: 4,
+              hintStyle: Theme.of(context).textTheme.bodyMedium,
               onChanged: (descriptionValue) {},
             ),
             const SizedBox(height: 16),
+
+            // ! Icons timer , tag , flag, send
             Row(
               children: [
                 IconButton(
@@ -50,13 +50,8 @@ class AddTaskScreen extends StatelessWidget {
                     icon: const Icon(FontAwesomeIcons.flag), onPressed: () {}),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {
-                    // Add save functionality here
-                  },
-                  icon: const Icon(
-                    Icons.send,
-                    color: MyColors.primaryColor,
-                  ),
+                  icon: const Icon(Icons.send, color: MyColors.primaryColor),
+                  onPressed: () {},
                 ),
               ],
             ),
