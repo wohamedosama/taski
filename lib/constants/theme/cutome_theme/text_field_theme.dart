@@ -41,18 +41,15 @@ class TextFormFieldAppTheme {
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(4),
-      borderSide:
-          const BorderSide(width: 1, color: MyColors.borderSideTextFailed),
+      borderSide: const BorderSide(width: 1, color: MyColors.whiteColor),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(4),
-      borderSide:
-          const BorderSide(width: 1, color: MyColors.borderSideTextFailed),
+      borderSide: const BorderSide(width: 1, color: MyColors.whiteColor),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(4),
-      borderSide:
-          const BorderSide(width: 1, color: MyColors.borderSideTextFailed),
+      borderSide: const BorderSide(width: 1, color: MyColors.whiteColor),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(4),

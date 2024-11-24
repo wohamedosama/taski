@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taski/constants/colors/my_colors.dart';
+import 'package:taski/constants/strings/routes.dart';
 
 import 'package:taski/constants/theme/app_theme.dart';
 
@@ -11,11 +12,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Task',
-        onPressed: () {},
-        child: const Icon(
-          Icons.add,
-          color: MyColors.lightColor,
-        ),
+        onPressed: () {
+          Navigator.of(context, rootNavigator: true).pushNamed(addTaskScreen);
+        },
+        child: const Icon(Icons.add, color: MyColors.lightColor),
       ),
       appBar: AppBar(
         centerTitle: true,
