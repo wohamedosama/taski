@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
     this.hintStyle,
     this.mixLins,
     this.autoFoucus = false,
+    this.prefixIcon,
   });
   final TextEditingController controller;
   final void Function(String)? onChanged;
@@ -16,17 +17,19 @@ class CustomTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final int? mixLins;
   final bool autoFoucus;
+  final Widget? prefixIcon;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (descriptionValue) {},
       autofocus: autoFoucus,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         hintText: hintText,
         hintStyle: hintStyle,
       ),
       maxLines: mixLins,
       controller: controller,
-      onChanged: (descriptionValue) {},
     );
   }
 }

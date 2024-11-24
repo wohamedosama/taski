@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/onboarding_title_andsubtitle.dart';
+import 'package:taski/widgets/on_boarding/onboarding_title_andsubtitle.dart';
 
 class NextButtonOrGetStartedButton extends StatelessWidget {
   const NextButtonOrGetStartedButton({

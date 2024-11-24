@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:taski/constants/colors/my_colors.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/cutom_text_field.dart';
+import 'package:taski/widgets/cutom_text_field.dart';
 
 class AddTaskScreen extends StatelessWidget {
   AddTaskScreen({super.key});

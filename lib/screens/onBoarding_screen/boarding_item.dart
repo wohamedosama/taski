@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/onboarding_title_andsubtitle.dart';
+import 'package:taski/widgets/on_boarding/onboarding_title_andsubtitle.dart';
 
 class BoardingItem extends StatelessWidget {
   const BoardingItem({
@@ -27,15 +27,12 @@ class BoardingItem extends StatelessWidget {
           //    boardingList[index].title!,
         ),
         const SizedBox(height: 20),
-        SizedBox(
-          height: 80,
-          child: OnBoardingTitleAndSubtitleText(
-            text: subtitle,
-            //color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w300,
-            //   boardingList[index].subtitle!,
-          ),
+        OnBoardingTitleAndSubtitleText(
+          text: subtitle,
+          //color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.w300,
+          //   boardingList[index].subtitle!,
         ),
       ],
     );

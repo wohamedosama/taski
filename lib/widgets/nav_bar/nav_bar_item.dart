@@ -41,10 +41,10 @@ class NavBarItem {
   }
 
   List<Widget> screess() {
-    return const [
-      CalendarScreen(),
+    return [
+      const CalendarScreen(),
       HomeScreen(),
-      ProfileScreen(),
+      const ProfileScreen(),
     ];
   }
 }

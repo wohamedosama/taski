@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/models/onboarding/onboarding_info.dart';
 import 'package:taski/models/onboarding/onboarding_model.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/boarding_item.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/dot_page_indicator_and_next_button.dart';
-import 'package:taski/widgets/skip_button.dart';
+import 'package:taski/screens/onBoarding_screen/boarding_item.dart';
+import 'package:taski/widgets/on_boarding/dot_page_indicator_and_next_button.dart';
+import 'package:taski/widgets/on_boarding/skip_button.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -54,7 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   subtitle: boardingList[index].subtitle!,
                 ),
 
-                const SizedBox(height: 80),
+                const Spacer(),
 
                 //! dot page indicator && Next button
                 DotPageIndicatorAndNextButton(

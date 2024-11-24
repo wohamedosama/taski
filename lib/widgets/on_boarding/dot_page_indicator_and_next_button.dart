@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taski/constants/strings/routes.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/next_button.dart';
-import 'package:taski/screens/onBoarding_screen/widgets/smooth_page_indicator.dart';
+import 'package:taski/widgets/on_boarding/next_button.dart';
+import 'package:taski/widgets/on_boarding/smooth_page_indicator.dart';
 
 class DotPageIndicatorAndNextButton extends StatelessWidget {
   const DotPageIndicatorAndNextButton({
