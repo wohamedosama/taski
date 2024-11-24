@@ -26,7 +26,7 @@ class NavBar extends StatelessWidget {
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
           duration: Duration(milliseconds: 300),
-          curve: Curves.bounceIn,
+          curve: Curves.decelerate,
         ),
         screenTransitionAnimation: ScreenTransitionAnimationSettings(
           // Screen transition animation on change of selected tab.
@@ -38,7 +38,7 @@ class NavBar extends StatelessWidget {
       confineToSafeArea: true,
       navBarHeight: kBottomNavigationBarHeight,
       navBarStyle:
-          NavBarStyle.style15, // Choose the nav bar style with this property
+          NavBarStyle.style10, // Choose the nav bar style with this property
     );
   }
 }
