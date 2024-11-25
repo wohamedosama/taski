@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/constants/strings/routes.dart';
-import 'package:taski/widgets/cutom_text_field.dart';
-import 'package:taski/widgets/search_bar_in_home_screen.dart';
+import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_or_not.dart';
+import 'package:taski/widgets/home_screen/search_bar_in_home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -32,6 +31,10 @@ class HomeScreen extends StatelessWidget {
           children: [
             // ! Search Bar
             SearchBarInHomeScreen(controller: searchController),
+            // ! check list image for none tasks
+            const CheckIfThereIsTaskInHomeScreenOrNot(),
+            // ! create list of tasks
+            //ListView.builder(itemBuilder: (context, indes) {}),
           ],
         ),
       ),
