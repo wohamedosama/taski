@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/constants/strings/routes.dart';
+import 'package:taski/constants/strings/text.dart';
 import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_or_not.dart';
 import 'package:taski/widgets/home_screen/search_bar_in_home_screen.dart';
 import 'package:taski/widgets/home_screen/task_card_item.dart';
@@ -10,10 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   final TextEditingController searchController = TextEditingController();
   final List<TaskCardItem> taskCardItems = [
-    const TaskCardItem(
-      title: 'Do Math Homework',
-      time: 'Today At 08:15',
-    )
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
   ];
   @override
   Widget build(BuildContext context) {
@@ -39,10 +37,7 @@ class HomeScreen extends StatelessWidget {
             // ! Search Bar
             SearchBarInHomeScreen(controller: searchController),
             const SizedBox(height: 16),
-            // ! check list image for none tasks
-            //const CheckIfThereIsTaskInHomeScreenOrNot(),
-            // ! create list of tasks
-
+            //! check if there is task in home screen or not
             taskCardItems.isEmpty
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
                 : Expanded(

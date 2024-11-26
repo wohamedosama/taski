@@ -14,26 +14,13 @@ class BoardingItem extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 30),
-        Image.asset(
-          image,
-          height: 400,
-        ),
+        Image.asset(image, height: 400),
         const SizedBox(height: 30),
         OnBoardingTitleAndSubtitleText(
-          text: title,
-          // color: Colors.black,
-          fontSize: 28,
-          fontWeight: FontWeight.w500,
-          //    boardingList[index].title!,
-        ),
+            text: title, fontSize: 28, fontWeight: FontWeight.w500),
         const SizedBox(height: 20),
         OnBoardingTitleAndSubtitleText(
-          text: subtitle,
-          //color: Colors.black,
-          fontSize: 20,
-          fontWeight: FontWeight.w300,
-          //   boardingList[index].subtitle!,
-        ),
+            text: subtitle, fontSize: 20, fontWeight: FontWeight.w300),
       ],
     );
   }
