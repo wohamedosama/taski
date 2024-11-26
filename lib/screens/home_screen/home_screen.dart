@@ -40,17 +40,20 @@ class HomeScreen extends StatelessWidget {
             //! check if there is task in home screen or not
             taskCardItems.isEmpty
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
-                : Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: taskCardItems.length,
-                      itemBuilder: (context, index) {
-                        return TaskCardItem(
-                          title: taskCardItems[index].title,
-                          time: taskCardItems[index].time,
-                        );
-                      },
+                : InkWell(
+                    onTap: () {},
+                    child: Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        itemCount: taskCardItems.length,
+                        itemBuilder: (context, index) {
+                          return TaskCardItem(
+                            title: taskCardItems[index].title,
+                            time: taskCardItems[index].time,
+                          );
+                        },
+                      ),
                     ),
                   ),
           ],
