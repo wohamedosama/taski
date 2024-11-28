@@ -12,6 +12,26 @@ class HomeScreen extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
   final List<TaskCardItem> taskCardItems = [
     const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,18 +61,24 @@ class HomeScreen extends StatelessWidget {
             taskCardItems.isEmpty
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
                 : InkWell(
-                    onTap: () {},
-                    child: Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: taskCardItems.length,
-                        itemBuilder: (context, index) {
-                          return TaskCardItem(
-                            title: taskCardItems[index].title,
-                            time: taskCardItems[index].time,
-                          );
-                        },
+                    onTap: () {
+                      Navigator.of(context, rootNavigator: true)
+                          .pushNamed(homeScreenDetails);
+                    },
+                    child: SingleChildScrollView(
+                      child: SizedBox(
+                        height: 580,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: taskCardItems.length,
+                          itemBuilder: (context, index) {
+                            return TaskCardItem(
+                              title: taskCardItems[index].title,
+                              time: taskCardItems[index].time,
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),

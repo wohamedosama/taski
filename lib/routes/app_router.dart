@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/screens/add_task_screen/add_task_screen.dart';
+import 'package:taski/screens/home_screen_details/home_screen_details.dart';
 import 'package:taski/screens/onBoarding_screen/onboarding_screen.dart';
 import 'package:taski/widgets/nav_bar/nav_bar.dart';
 
@@ -17,6 +18,9 @@ class AppRouters {
         return MaterialPageRoute(builder: (context) => NavBar());
       case addTaskScreen:
         return MaterialPageRoute(builder: (context) => AddTaskScreen());
+      case homeScreenDetails:
+        return MaterialPageRoute(
+            builder: (context) => const HomeScreenDetails());
     }
   }
 }
