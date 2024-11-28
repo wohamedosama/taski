@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/constants/strings/text.dart';
-import 'package:taski/widgets/home_screen/custom_timer_picker.dart';
+import 'package:taski/widgets/home_screen/build_task_details_item.dart';
 import 'package:taski/widgets/home_screen/task_card_item.dart';
 
 class HomeScreenDetails extends StatelessWidget {
@@ -25,44 +25,48 @@ class HomeScreenDetails extends StatelessWidget {
               icon: const Icon(FontAwesomeIcons.xmark)),
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-            SizedBox(height: 16),
-            BuildTaskDetailsItem(time: 'Today At 16:45'),
+            const TaskCardItem(
+                title: taskCardItemTitle, time: taskCardItemTime),
+            const SizedBox(height: 16),
+            const BuildTaskDetailsItem(time: 'Today At 16:45'),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 120,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shadowColor: Colors.transparent,
+                        overlayColor: Colors.transparent,
+                        backgroundColor: Colors.transparent,
+                        side: const BorderSide(color: Colors.transparent),
+                        padding: EdgeInsets.zero,
+                      ),
+                      onPressed: () {},
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(FontAwesomeIcons.trash,
+                              color: MyColors.deleteItem),
+                          SizedBox(width: 8),
+                          Text('Delete Task',
+                              style: TextStyle(color: MyColors.deleteItem)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class BuildTaskDetailsItem extends StatelessWidget {
-  const BuildTaskDetailsItem({
-    super.key,
-    required this.time,
-  });
-  final String time;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Row(
-        children: [
-          const Icon(FontAwesomeIcons.clock, size: 24),
-          const SizedBox(width: 12),
-          Text('Task Time :', style: Theme.of(context).textTheme.headlineSmall),
-          const Spacer(),
-          ElevatedButton(
-            onPressed: () {
-              customTimePicker(context);
-            },
-            child: Text(time),
-          ),
-        ],
       ),
     );
   }

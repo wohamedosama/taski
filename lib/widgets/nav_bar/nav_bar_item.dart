@@ -43,7 +43,7 @@ class NavBarItem {
   List<Widget> screess() {
     return [
       const CalendarScreen(),
-      HomeScreen(),
+      const HomeScreen(),
       const ProfileScreen(),
     ];
   }

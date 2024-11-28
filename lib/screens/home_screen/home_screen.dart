@@ -6,13 +6,28 @@ import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_o
 import 'package:taski/widgets/home_screen/search_bar_in_home_screen.dart';
 import 'package:taski/widgets/home_screen/task_card_item.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController searchController = TextEditingController();
+
   final List<TaskCardItem> taskCardItems = [
     const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +68,29 @@ class HomeScreen extends StatelessWidget {
                             Navigator.of(context, rootNavigator: true)
                                 .pushNamed(homeScreenDetails);
                           },
-                          child: TaskCardItem(
-                            title: taskCardItems[index].title,
-                            time: taskCardItems[index].time,
+                          child: Dismissible(
+                            background: Container(
+                              alignment: AlignmentDirectional.centerEnd,
+                              color: Colors.red,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          0.0, 0.0, 0.02, 0.0),
+                                      child: const Icon(Icons.delete)),
+                                ],
+                              ),
+                            ),
+                            onDismissed: (direction) {
+                              setState(() {
+                                taskCardItems.removeAt(index);
+                              });
+                            },
+                            key: UniqueKey(),
+                            child: TaskCardItem(
+                                title: taskCardItems[index].title,
+                                time: taskCardItems[index].time),
                           ),
                         );
                       },

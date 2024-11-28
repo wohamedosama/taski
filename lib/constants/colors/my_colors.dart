@@ -12,4 +12,5 @@ class MyColors {
   static const Color borderSideTextFailed = Color(0xff000000);
   static const Color warning = Color(0xFFF57C00);
   static const Color navBarColor = Color(0xff363636);
+  static const Color deleteItem = Color(0xffFF4949);
 }
