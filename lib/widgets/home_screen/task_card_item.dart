@@ -41,7 +41,6 @@ class TaskCardItem extends StatelessWidget {
                     .titleMedium!
                     .copyWith(color: MyColors.hintTextstyle),
               ),
-              const SizedBox(height: 10),
             ],
           )
         ],

@@ -19,8 +19,7 @@ class AppRouters {
       case addTaskScreen:
         return MaterialPageRoute(builder: (context) => AddTaskScreen());
       case homeScreenDetails:
-        return MaterialPageRoute(
-            builder: (context) => const HomeScreenDetails());
+        return MaterialPageRoute(builder: (context) => HomeScreenDetails());
     }
   }
 }

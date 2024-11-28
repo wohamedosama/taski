@@ -12,26 +12,6 @@ class HomeScreen extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
   final List<TaskCardItem> taskCardItems = [
     const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
   ];
   @override
   Widget build(BuildContext context) {
@@ -51,7 +31,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             // ! Search Bar
@@ -60,26 +40,25 @@ class HomeScreen extends StatelessWidget {
             //! check if there is task in home screen or not
             taskCardItems.isEmpty
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
-                : InkWell(
-                    onTap: () {
-                      Navigator.of(context, rootNavigator: true)
-                          .pushNamed(homeScreenDetails);
-                    },
-                    child: SingleChildScrollView(
-                      child: SizedBox(
-                        height: 580,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: taskCardItems.length,
-                          itemBuilder: (context, index) {
-                            return TaskCardItem(
-                              title: taskCardItems[index].title,
-                              time: taskCardItems[index].time,
-                            );
+                : SizedBox(
+                    height: 590,
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: taskCardItems.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed(homeScreenDetails);
                           },
-                        ),
-                      ),
+                          child: TaskCardItem(
+                            title: taskCardItems[index].title,
+                            time: taskCardItems[index].time,
+                          ),
+                        );
+                      },
                     ),
                   ),
           ],
