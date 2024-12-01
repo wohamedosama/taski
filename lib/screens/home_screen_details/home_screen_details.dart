@@ -41,10 +41,54 @@ class HomeScreenDetails extends StatelessWidget {
             const BuildTaskDetailsItem(time: 'Today At 16:45'),
             const SizedBox(height: 20),
             // ! Delete Task Button
-            DeleteTaskButton(onPressed: () {}),
+            DeleteTaskButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return ShowDialogToDeleteTask(
+                      onCancel: () {
+                        Navigator.pop(context);
+                      },
+                      // ! Delete Task Function
+                      onDelete: () {},
+                    );
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ShowDialogToDeleteTask extends StatelessWidget {
+  const ShowDialogToDeleteTask({
+    super.key,
+    required this.onDelete,
+    required this.onCancel,
+  });
+
+  final void Function() onDelete;
+  final void Function() onCancel;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Delete Task'),
+      content: const Text('Are you sure you want to delete this task?'),
+      actions: [
+        TextButton(
+          onPressed: onCancel,
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: onDelete,
+          child: const Text('Delete'),
+        ),
+      ],
     );
   }
 }
