@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/constants/strings/text.dart';
+import 'package:taski/widgets/edit_task_screen/cusotm_dialog_to_delete_task.dart';
 import 'package:taski/widgets/edit_task_screen/delete_button.dart';
 import 'package:taski/widgets/home_screen/build_task_details_item.dart';
 import 'package:taski/widgets/home_screen/task_card_item.dart';
@@ -46,12 +47,15 @@ class HomeScreenDetails extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) {
-                    return ShowDialogToDeleteTask(
+                    return CustomDialogToDeleteTask(
                       onCancel: () {
                         Navigator.pop(context);
                       },
                       // ! Delete Task Function
-                      onDelete: () {},
+                      onDelete: () {
+                        // ! after handle logic popup from the scren
+                        Navigator.pop(context);
+                      },
                     );
                   },
                 );
@@ -60,35 +64,6 @@ class HomeScreenDetails extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class ShowDialogToDeleteTask extends StatelessWidget {
-  const ShowDialogToDeleteTask({
-    super.key,
-    required this.onDelete,
-    required this.onCancel,
-  });
-
-  final void Function() onDelete;
-  final void Function() onCancel;
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Delete Task'),
-      content: const Text('Are you sure you want to delete this task?'),
-      actions: [
-        TextButton(
-          onPressed: onCancel,
-          child: const Text('Cancel'),
-        ),
-        TextButton(
-          onPressed: onDelete,
-          child: const Text('Delete'),
-        ),
-      ],
     );
   }
 }
