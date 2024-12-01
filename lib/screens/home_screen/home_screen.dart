@@ -3,6 +3,7 @@ import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/constants/strings/routes.dart';
 
 import 'package:taski/constants/strings/text.dart';
+import 'package:taski/widgets/app_bar_title.dart';
 import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_or_not.dart';
 import 'package:taski/widgets/home_screen/search_bar_in_home_screen.dart';
 import 'package:taski/widgets/home_screen/task_card_item.dart';
@@ -40,11 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const Icon(Icons.add, color: MyColors.lightColor),
       ),
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child:
-              Text('Home', style: Theme.of(context).textTheme.headlineMedium),
-        ),
+        title: const AppBarTitle(title: 'Home'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
