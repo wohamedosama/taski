@@ -66,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.of(context, rootNavigator: true)
                                 .pushNamed(homeScreenDetails);
                           },
+                          // !try to use flutter_slidable
                           child: Dismissible(
                             background: Container(
                               alignment: AlignmentDirectional.centerEnd,
