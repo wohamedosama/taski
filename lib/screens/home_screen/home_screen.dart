@@ -57,8 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //! check if there is task in home screen or not
             taskCardItems.isEmpty
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
-                : SizedBox(
-                    height: 645,
+                : Expanded(
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -99,6 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
+            const SizedBox(height: 8),
           ],
         ),
       ),
