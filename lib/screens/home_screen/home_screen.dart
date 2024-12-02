@@ -28,6 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
     const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
     const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
     const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
   ];
 
   @override
@@ -54,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             taskCardItems.isEmpty
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
                 : SizedBox(
-                    height: 590,
+                    height: 645,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
