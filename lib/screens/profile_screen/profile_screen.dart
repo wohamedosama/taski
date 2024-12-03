@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/constants/strings/text.dart';
 import 'package:taski/widgets/app_bar_title.dart';
+import 'package:taski/widgets/build_setting_item.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -12,44 +14,56 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const AppBarTitle(title: 'Profile'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            BuildSettingItem(
-                title: changeAppTheme,
-                leadingIcon: FontAwesomeIcons.penToSquare),
-            SizedBox(height: 16),
-            BuildSettingItem(
-                title: changeapplanguage,
-                leadingIcon: FontAwesomeIcons.language),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: 1,
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text('App Settings',
+                    style: Theme.of(context).textTheme.titleLarge),
+              ),
+              const SizedBox(height: 4),
+              const BuildSettingItem(
+                  title: changeAppTheme,
+                  leadingIcon: FontAwesomeIcons.penToSquare),
+              const SizedBox(height: 8),
+              const BuildSettingItem(
+                  title: changeapplanguage,
+                  leadingIcon: FontAwesomeIcons.language),
+              const SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text('Taski',
+                    style: Theme.of(context).textTheme.titleLarge),
+              ),
+              const SizedBox(height: 4),
+              const BuildSettingItem(
+                  title: aboutUS, leadingIcon: FontAwesomeIcons.circleQuestion),
+              const SizedBox(height: 8),
+              const BuildSettingItem(
+                  title: faq, leadingIcon: FontAwesomeIcons.circleInfo),
+              const SizedBox(height: 8),
+              const BuildSettingItem(
+                  title: helpAndFeedback, leadingIcon: FontAwesomeIcons.bolt),
+              const SizedBox(height: 8),
+              const BuildSettingItem(
+                  title: supportUS, leadingIcon: FontAwesomeIcons.thumbsUp),
+              const SizedBox(height: 8),
+              const BuildSettingItem(
+                title: logout,
+                leadingIcon: FontAwesomeIcons.arrowRightFromBracket,
+                leadingColor: MyColors.deleteItem,
+              ),
+            ],
+          ),
         ),
       ),
-    );
-  }
-}
-
-class BuildSettingItem extends StatelessWidget {
-  const BuildSettingItem({
-    super.key,
-    this.onTap,
-    required this.title,
-    required this.leadingIcon,
-    this.trailingIcon = FontAwesomeIcons.chevronRight,
-  });
-  final void Function()? onTap;
-  final String title;
-  final IconData leadingIcon;
-  final IconData trailingIcon;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(leadingIcon),
-      title: Text(title, style: Theme.of(context).textTheme.headlineMedium),
-      trailing: Icon(trailingIcon),
-      onTap: onTap,
     );
   }
 }

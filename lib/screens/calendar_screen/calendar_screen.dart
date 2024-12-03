@@ -28,10 +28,7 @@ class CalendarScreen extends StatelessWidget {
         child: Column(
           children: [
             CalendarTimeLine(
-              onDateSelected: (date) {
-                // ignore: avoid_print
-                print(date.day);
-              },
+              onDateSelected: (date) {},
             ),
             const SizedBox(height: 16),
             // ! is today and is completed Task In calendar screen
