@@ -5,11 +5,13 @@ import 'package:taski/constants/strings/text.dart';
 import 'package:taski/widgets/app_bar_title.dart';
 import 'package:taski/widgets/build_setting_item.dart';
 
+// ! refactor that page to be less code and more readable
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTitle(title: 'Profile'),
@@ -29,11 +31,15 @@ class ProfileScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge),
               ),
               const SizedBox(height: 4),
-              const BuildSettingItem(
+              BuildSettingItem(
+                  leadingColor:
+                      isDark ? MyColors.lightColor : MyColors.navBarColor,
                   title: changeAppTheme,
                   leadingIcon: FontAwesomeIcons.penToSquare),
               const SizedBox(height: 8),
-              const BuildSettingItem(
+              BuildSettingItem(
+                  leadingColor:
+                      isDark ? MyColors.lightColor : MyColors.navBarColor,
                   title: changeapplanguage,
                   leadingIcon: FontAwesomeIcons.language),
               const SizedBox(height: 8),
@@ -43,19 +49,32 @@ class ProfileScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge),
               ),
               const SizedBox(height: 4),
-              const BuildSettingItem(
-                  title: aboutUS, leadingIcon: FontAwesomeIcons.circleQuestion),
+              BuildSettingItem(
+                  leadingColor:
+                      isDark ? MyColors.lightColor : MyColors.navBarColor,
+                  title: aboutUS,
+                  leadingIcon: FontAwesomeIcons.circleQuestion),
+              const SizedBox(height: 8),
+              BuildSettingItem(
+                  leadingColor:
+                      isDark ? MyColors.lightColor : MyColors.navBarColor,
+                  title: faq,
+                  leadingIcon: FontAwesomeIcons.circleInfo),
+              const SizedBox(height: 8),
+              BuildSettingItem(
+                  leadingColor:
+                      isDark ? MyColors.lightColor : MyColors.navBarColor,
+                  title: helpAndFeedback,
+                  leadingIcon: FontAwesomeIcons.bolt),
+              const SizedBox(height: 8),
+              BuildSettingItem(
+                  leadingColor:
+                      isDark ? MyColors.lightColor : MyColors.navBarColor,
+                  title: supportUS,
+                  leadingIcon: FontAwesomeIcons.thumbsUp),
               const SizedBox(height: 8),
               const BuildSettingItem(
-                  title: faq, leadingIcon: FontAwesomeIcons.circleInfo),
-              const SizedBox(height: 8),
-              const BuildSettingItem(
-                  title: helpAndFeedback, leadingIcon: FontAwesomeIcons.bolt),
-              const SizedBox(height: 8),
-              const BuildSettingItem(
-                  title: supportUS, leadingIcon: FontAwesomeIcons.thumbsUp),
-              const SizedBox(height: 8),
-              const BuildSettingItem(
+                isLogout: true,
                 title: logout,
                 leadingIcon: FontAwesomeIcons.arrowRightFromBracket,
                 leadingColor: MyColors.deleteItem,
