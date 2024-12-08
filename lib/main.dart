@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:taski/constants/theme/app_theme.dart';
+import 'package:taski/models/tasks/task_model.dart';
 import 'package:taski/routes/app_router.dart';
 
 void main() async {
@@ -9,6 +10,9 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.delayed(const Duration(seconds: 20));
   FlutterNativeSplash.remove();
+  await Hive.initFlutter();
+  Hive.registerAdapter(TaskModelAdapter());
+
   runApp(Taski(
     approuters: AppRouters(),
   ));
@@ -22,8 +26,6 @@ class Taski extends StatelessWidget {
 
   final AppRouters approuters;
   @override
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
