@@ -25,12 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     List<TaskModel> tasks = BlocProvider.of<GetTasksCubit>(context).tasks ?? [];
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Add Task',
-        onPressed: () {
+      floatingActionButton: customFloatingActionButton(
+        context,
+        'Add Task',
+        () {
           Navigator.of(context, rootNavigator: true).pushNamed(addTaskScreen);
         },
-        child: const Icon(Icons.add, color: MyColors.lightColor),
       ),
       appBar: AppBar(title: const AppBarTitle(title: 'Home')),
       body: Padding(
@@ -53,6 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  FloatingActionButton customFloatingActionButton(
+      BuildContext context, String title, void Function()? onPressed) {
+    return FloatingActionButton(
+      tooltip: title,
+      onPressed: onPressed,
+      child: const Icon(Icons.add, color: MyColors.lightColor),
     );
   }
 }
