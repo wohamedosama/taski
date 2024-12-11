@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taski/bloc/add_task_cubit/task_cubit.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/screens/add_task_screen/add_task_screen.dart';
 import 'package:taski/screens/home_screen_details/home_screen_details.dart';
@@ -15,9 +17,16 @@ class AppRouters {
         return MaterialPageRoute(
             builder: (context) => const OnboardingScreen());
       case navbar:
-        return MaterialPageRoute(builder: (context) => NavBar());
+        return MaterialPageRoute(
+          builder: (context) => NavBar(),
+        );
       case addTaskScreen:
-        return MaterialPageRoute(builder: (context) => AddTaskScreen());
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => AddTaskCubit(),
+            child: const AddTaskScreen(),
+          ),
+        );
       case homeScreenDetails:
         return MaterialPageRoute(builder: (context) => HomeScreenDetails());
     }

@@ -9,3 +9,4 @@ const String faq = 'FAQ';
 const String helpAndFeedback = 'Help & Feedback';
 const String supportUS = 'Support US';
 const String logout = 'Logout';
+const String kTaskBox = 'TaskBox';

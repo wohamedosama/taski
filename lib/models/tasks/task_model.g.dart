@@ -19,7 +19,7 @@ class TaskModelAdapter extends TypeAdapter<TaskModel> {
     return TaskModel(
       title: fields[0] as String,
       description: fields[1] as String,
-      date: fields[2] as DateTime,
+      date: fields[2] as String,
       time: fields[3] as String,
     );
   }

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/constants/colors/my_colors.dart';
+import 'package:taski/models/tasks/task_model.dart';
 
 class TaskCardItem extends StatelessWidget {
   const TaskCardItem({
     super.key,
-    required this.title,
-    required this.time,
     this.isHomeScreen = false,
     this.onPressed,
+    required this.task,
   });
-  final String title;
-  final String time;
+
   final bool isHomeScreen;
   final void Function()? onPressed;
+  final TaskModel task;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class TaskCardItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  task.title,
                   style: Theme.of(context)
                       .textTheme
                       .headlineSmall!
@@ -42,7 +42,7 @@ class TaskCardItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  time,
+                  task.time,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!

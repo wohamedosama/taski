@@ -5,23 +5,26 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.controller,
     required this.hintText,
-    this.onChanged,
+    this.onSaved,
     this.hintStyle,
-    this.mixLins,
+    this.mixLins = 1,
     this.autoFoucus = false,
     this.prefixIcon,
+    this.validator,
   });
   final TextEditingController controller;
-  final void Function(String)? onChanged;
+  final void Function(String?)? onSaved;
   final String hintText;
   final TextStyle? hintStyle;
-  final int? mixLins;
+  final int mixLins;
   final bool autoFoucus;
   final Widget? prefixIcon;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      onChanged: (descriptionValue) {},
+    return TextFormField(
+      validator: validator,
+      onSaved: onSaved,
       autofocus: autoFoucus,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,

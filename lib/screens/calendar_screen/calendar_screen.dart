@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:taski/constants/strings/text.dart';
 import 'package:taski/widgets/app_bar_title.dart';
 import 'package:taski/widgets/calendar_screen/calendar_time_line.dart';
 import 'package:taski/widgets/calendar_screen/check_if_is_completed_or_is_todat_task.dart';
-import 'package:taski/widgets/home_screen/task_card_item.dart';
 
 class CalendarScreen extends StatelessWidget {
-  CalendarScreen({super.key});
-  final List<TaskCardItem> taskCardItems = [
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-    const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-  ];
+  const CalendarScreen({super.key});
+  // final List<TaskCardItem> taskCardItems = [
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  //   const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +40,12 @@ class CalendarScreen extends StatelessWidget {
                     return const SizedBox(height: 6);
                   },
                   itemBuilder: (context, index) {
-                    return TaskCardItem(
-                        title: taskCardItems[index].title,
-                        time: taskCardItems[index].time);
+                    return Container();
+                    // return TaskCardItem(
+                    //     title: taskCardItems[index].title,
+                    //     time: taskCardItems[index].time);
                   },
-                  itemCount: taskCardItems.length),
+                  itemCount: 10),
             ),
           ],
         ),
