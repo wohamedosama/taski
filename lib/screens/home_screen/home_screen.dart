@@ -38,9 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ? const CheckIfThereIsTaskInHomeScreenOrNot()
                 : BlocBuilder<GetTasksCubit, GetTasksState>(
                     builder: (context, state) {
-                    if (state is TaskSuccessState) tasks = state.tasks;
-                    return CustomListToViewTasks(tasks: tasks);
-                  }),
+                      if (state is TaskSuccessState) tasks = state.tasks;
+                      return CustomListToViewTasks(tasks: tasks);
+                    },
+                  ),
             const SizedBox(height: 8),
           ],
         ),
