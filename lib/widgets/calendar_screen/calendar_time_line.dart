@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 
 class CalendarTimeLine extends StatelessWidget {
-  const CalendarTimeLine({super.key, required this.onDateSelected});
+  const CalendarTimeLine({
+    super.key,
+    required this.onDateSelected,
+    this.initialDate,
+  });
   final void Function(DateTime) onDateSelected;
+  final DateTime? initialDate;
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
     return CalendarTimeline(
-      initialDate: DateTime.now(),
+      initialDate: initialDate ?? DateTime.now(),
       firstDate: DateTime(2000, 1, 1),
       lastDate: DateTime(2300, 12, 30),
       onDateSelected: onDateSelected,

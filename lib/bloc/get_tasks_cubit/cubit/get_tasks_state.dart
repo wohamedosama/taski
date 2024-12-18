@@ -16,3 +16,8 @@ final class TaskFailureState extends GetTasksState {
   final String error;
   TaskFailureState({required this.error});
 }
+
+final class DisplayTaskOnCalendarScreen extends GetTasksState {
+  final List<TaskModel> filteredTasks;
+  DisplayTaskOnCalendarScreen({required this.filteredTasks});
+}

@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
     this.autoFoucus = false,
     this.prefixIcon,
     this.validator,
+    this.onChanged,
   });
   final TextEditingController controller;
   final void Function(String?)? onSaved;
@@ -20,9 +21,11 @@ class CustomTextField extends StatelessWidget {
   final bool autoFoucus;
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       validator: validator,
       onSaved: onSaved,
       autofocus: autoFoucus,

@@ -30,19 +30,8 @@ class ProfileScreen extends StatelessWidget {
                 child: Text('App Settings',
                     style: Theme.of(context).textTheme.titleLarge),
               ),
+              //const BuildListViewToViewTheAppSettingBar(),
               const SizedBox(height: 4),
-              BuildSettingItem(
-                  leadingColor:
-                      isDark ? MyColors.lightColor : MyColors.navBarColor,
-                  title: changeAppTheme,
-                  leadingIcon: FontAwesomeIcons.penToSquare),
-              const SizedBox(height: 8),
-              BuildSettingItem(
-                  leadingColor:
-                      isDark ? MyColors.lightColor : MyColors.navBarColor,
-                  title: changeapplanguage,
-                  leadingIcon: FontAwesomeIcons.language),
-              const SizedBox(height: 8),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text('Taski',
@@ -86,3 +75,24 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+class BuildListViewToViewTheAppSettingBar extends StatelessWidget {
+  const BuildListViewToViewTheAppSettingBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+        itemBuilder: (context, index) {
+          return Column(children: buildSettingItemsForAppSettingSections());
+        },
+        separatorBuilder: (context, index) => const SizedBox(height: 8),
+        itemCount: buildSettingItemsForAppSettingSections().length);
+  }
+}
+
+List<BuildSettingItem> buildSettingItemsForAppSettingSections() => [
+      const BuildSettingItem(
+          title: changeAppTheme, leadingIcon: FontAwesomeIcons.penToSquare),
+      const BuildSettingItem(
+          title: changeapplanguage, leadingIcon: FontAwesomeIcons.language),
+    ];
