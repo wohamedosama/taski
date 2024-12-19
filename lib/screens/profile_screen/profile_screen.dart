@@ -11,65 +11,33 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    //final bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTitle(title: 'Profile'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: 1,
-          shrinkWrap: true,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text('App Settings',
-                    style: Theme.of(context).textTheme.titleLarge),
-              ),
-              //const BuildListViewToViewTheAppSettingBar(),
-              const SizedBox(height: 4),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text('Taski',
-                    style: Theme.of(context).textTheme.titleLarge),
-              ),
-              const SizedBox(height: 4),
-              BuildSettingItem(
-                  leadingColor:
-                      isDark ? MyColors.lightColor : MyColors.navBarColor,
-                  title: aboutUS,
-                  leadingIcon: FontAwesomeIcons.circleQuestion),
-              const SizedBox(height: 8),
-              BuildSettingItem(
-                  leadingColor:
-                      isDark ? MyColors.lightColor : MyColors.navBarColor,
-                  title: faq,
-                  leadingIcon: FontAwesomeIcons.circleInfo),
-              const SizedBox(height: 8),
-              BuildSettingItem(
-                  leadingColor:
-                      isDark ? MyColors.lightColor : MyColors.navBarColor,
-                  title: helpAndFeedback,
-                  leadingIcon: FontAwesomeIcons.bolt),
-              const SizedBox(height: 8),
-              BuildSettingItem(
-                  leadingColor:
-                      isDark ? MyColors.lightColor : MyColors.navBarColor,
-                  title: supportUS,
-                  leadingIcon: FontAwesomeIcons.thumbsUp),
-              const SizedBox(height: 8),
-              const BuildSettingItem(
-                isLogout: true,
-                title: logout,
-                leadingIcon: FontAwesomeIcons.arrowRightFromBracket,
-                leadingColor: MyColors.deleteItem,
-              ),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // App Settings Section
+            Text(
+              'App Settings',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 8),
+            ...buildSettingItemsForAppSettingSections(),
+
+            // Taski Section
+            const SizedBox(height: 16),
+            Text(
+              'Taski',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 8),
+            ...buildSettingItemsForTaskiSections(),
+          ],
         ),
       ),
     );
@@ -96,3 +64,36 @@ List<BuildSettingItem> buildSettingItemsForAppSettingSections() => [
       const BuildSettingItem(
           title: changeapplanguage, leadingIcon: FontAwesomeIcons.language),
     ];
+
+class BuildListViewToViewTheTaskiBar extends StatelessWidget {
+  const BuildListViewToViewTheTaskiBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+        itemBuilder: (context, index) {
+          return Column(children: buildSettingItemsForTaskiSections());
+        },
+        separatorBuilder: (context, index) => const SizedBox(height: 8),
+        itemCount: buildSettingItemsForTaskiSections().length);
+  }
+}
+
+List<BuildSettingItem> buildSettingItemsForTaskiSections() {
+  return [
+    const BuildSettingItem(
+        title: aboutUS, leadingIcon: FontAwesomeIcons.circleQuestion),
+    const BuildSettingItem(
+        title: faq, leadingIcon: FontAwesomeIcons.circleInfo),
+    const BuildSettingItem(
+        title: helpAndFeedback, leadingIcon: FontAwesomeIcons.bolt),
+    const BuildSettingItem(
+        title: supportUS, leadingIcon: FontAwesomeIcons.thumbsUp),
+    const BuildSettingItem(
+      isLogout: true,
+      title: logout,
+      leadingIcon: FontAwesomeIcons.arrowRightFromBracket,
+      leadingColor: MyColors.deleteItem,
+    ),
+  ];
+}
