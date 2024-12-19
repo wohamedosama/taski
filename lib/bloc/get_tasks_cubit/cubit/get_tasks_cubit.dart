@@ -11,6 +11,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
 
   List<TaskModel>? tasks;
   List<TaskModel> filteredTasks = [];
+
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     tasks = taskBox.values.toList();
@@ -29,5 +30,12 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     emit(DisplayTaskOnCalendarScreen(filteredTasks: filteredTasks));
 
     return filteredTasks;
+  }
+
+  bool isDark = false;
+
+  void changeAppTheme() {
+    isDark = !isDark;
+    emit(ChangeAppTheme());
   }
 }

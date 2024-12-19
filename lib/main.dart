@@ -36,10 +36,16 @@ class Taski extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetTasksCubit()..fetchAllTask(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.darkTheme,
-        onGenerateRoute: approuters.generateRoute,
+      child: BlocBuilder<GetTasksCubit, GetTasksState>(
+        builder: (context, state) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: BlocProvider.of<GetTasksCubit>(context).isDark
+              ? ThemeMode.dark
+              : ThemeMode.light,
+          onGenerateRoute: approuters.generateRoute,
+        ),
       ),
     );
   }

@@ -21,3 +21,5 @@ final class DisplayTaskOnCalendarScreen extends GetTasksState {
   final List<TaskModel> filteredTasks;
   DisplayTaskOnCalendarScreen({required this.filteredTasks});
 }
+
+final class ChangeAppTheme extends GetTasksState {}
