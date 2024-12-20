@@ -11,6 +11,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
 
   List<TaskModel>? tasks;
   List<TaskModel> filteredTasks = [];
+  List<TaskModel> searcehdTasks = [];
 
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);

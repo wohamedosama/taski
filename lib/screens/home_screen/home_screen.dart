@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
 import 'package:taski/models/tasks/task_model.dart';
+import 'package:taski/screens/home_screen_details/home_screen_details.dart';
+import 'package:taski/screens/search_screen/search_screen.dart';
 import 'package:taski/widgets/app_bar_title.dart';
 import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_or_not.dart';
 import 'package:taski/widgets/home_screen/custom_floating_action_button.dart';
@@ -31,7 +33,16 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             // ! Search Bar
             // Todo build serch fucntion
-            SearchBarInHomeScreen(controller: searchController),
+            SearchBarInHomeScreen(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchScreen()));
+              },
+              controller: searchController,
+              onChanged: (searchedTasks) {},
+            ),
             const SizedBox(height: 16),
             //! check if there is task in home screen or not
             tasks.isEmpty

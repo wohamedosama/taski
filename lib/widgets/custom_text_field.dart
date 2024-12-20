@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
     this.prefixIcon,
     this.validator,
     this.onChanged,
+    this.onTap,
   });
   final TextEditingController controller;
   final void Function(String?)? onSaved;
@@ -22,9 +23,11 @@ class CustomTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       onChanged: onChanged,
       validator: validator,
       onSaved: onSaved,

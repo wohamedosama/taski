@@ -22,4 +22,9 @@ final class DisplayTaskOnCalendarScreen extends GetTasksState {
   DisplayTaskOnCalendarScreen({required this.filteredTasks});
 }
 
+final class DisplayTaskOnSearchFormField extends GetTasksState {
+  final List<TaskModel> searcehdTasks;
+  DisplayTaskOnSearchFormField({required this.searcehdTasks});
+}
+
 final class ChangeAppTheme extends GetTasksState {}

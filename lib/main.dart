@@ -42,8 +42,8 @@ class Taski extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: BlocProvider.of<GetTasksCubit>(context).isDark
-              ? ThemeMode.dark
-              : ThemeMode.light,
+              ? ThemeMode.light
+              : ThemeMode.dark,
           onGenerateRoute: approuters.generateRoute,
         ),
       ),
