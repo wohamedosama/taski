@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
 
 import 'package:taski/widgets/edit_task_screen/cusotm_dialog_to_delete_task.dart';
 import 'package:taski/widgets/edit_task_screen/delete_button.dart';
 import 'package:taski/widgets/home_screen/build_task_details_item.dart';
-import 'package:taski/widgets/home_screen/task_card_item.dart';
 
 class HomeScreenDetails extends StatelessWidget {
-  HomeScreenDetails({super.key});
-  final List<TaskCardItem> taskCardItems = [
-    // const TaskCardItem(title: taskCardItemTitle, time: taskCardItemTime),
-  ];
+  const HomeScreenDetails({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +33,6 @@ class HomeScreenDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // ! Edit Task Button
-            // TaskCardItem(
-            //     title: taskCardItemTitle,
-            //     time: taskCardItemTime,
-            //     isHomeScreen: true,
-            //     onPressed: () {}),
             const SizedBox(height: 16),
             //! Edit Time Button
             const BuildTaskDetailsItem(time: 'Today At 16:45'),
@@ -52,8 +48,11 @@ class HomeScreenDetails extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       // ! Delete Task Function
+                      // ! I can't delete the task I needed becasue I don't have the task id or index realted to the task from list view
+                      //! sorry
                       onDelete: () {
-                        // ! after handle logic popup from the scren
+                        Navigator.pop(context);
+                        BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
                         Navigator.pop(context);
                       },
                     );

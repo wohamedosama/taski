@@ -28,7 +28,8 @@ class AppRouters {
           ),
         );
       case homeScreenDetails:
-        return MaterialPageRoute(builder: (context) => HomeScreenDetails());
+        return MaterialPageRoute(
+            builder: (context) => const HomeScreenDetails());
     }
   }
 }

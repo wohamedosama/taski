@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/models/tasks/task_model.dart';
 import 'package:taski/widgets/home_screen/slidable_action_to_delete_the_tasks.dart';
 
@@ -21,10 +20,10 @@ class CustomListToViewTasks extends StatelessWidget {
         itemCount: tasks.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-              Navigator.of(context, rootNavigator: true)
-                  .pushNamed(homeScreenDetails);
-            },
+            // onTap: () {
+            //   Navigator.of(context, rootNavigator: true)
+            //       .pushNamed(homeScreenDetails);
+            // },
             //  ! try to use flutter_slidable
             child: CustomSlidableToDeleteTasks(
               tasks: tasks,
