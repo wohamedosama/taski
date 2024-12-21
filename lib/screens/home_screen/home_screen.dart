@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
+import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/models/tasks/task_model.dart';
 import 'package:taski/screens/search_screen/search_screen.dart';
 import 'package:taski/widgets/app_bar_title.dart';
@@ -21,37 +22,35 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<TaskModel> tasks = BlocProvider.of<GetTasksCubit>(context).tasks ?? [];
     return Scaffold(
-      // ! Floating Action Button try in the future delete navigate to another screen and cereate bottom sheet
       floatingActionButton: customFloatingActionButton(context),
       appBar: AppBar(title: const AppBarTitle(title: 'Home')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // ! Search Bar
-            // Todo build serch fucntion
+            // Search Bar
             SearchBarInHomeScreen(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SearchScreen()));
+                Navigator.of(context, rootNavigator: true)
+                    .pushNamed(searchScreen);
               },
               controller: searchController,
               onChanged: (searchedTasks) {},
             ),
             const SizedBox(height: 16),
-            //! check if there is task in home screen or not
-            tasks.isEmpty
-                ? const CheckIfThereIsTaskInHomeScreenOrNot()
-                : BlocBuilder<GetTasksCubit, GetTasksState>(
-                    builder: (context, state) {
-                      if (state is TaskSuccessState) tasks = state.tasks;
-                      return CustomListToViewTasks(tasks: tasks);
-                    },
-                  ),
+            //! Check if there is task in home screen or not
+            BlocBuilder<GetTasksCubit, GetTasksState>(
+              builder: (context, state) {
+                List<TaskModel> tasks = [];
+                if (state is TaskSuccessState) {
+                  tasks = state.tasks;
+                }
+                return tasks.isEmpty
+                    ? const CheckIfThereIsTaskInHomeScreenOrNot()
+                    : CustomListToViewTasks(tasks: tasks);
+              },
+            ),
             const SizedBox(height: 8),
           ],
         ),

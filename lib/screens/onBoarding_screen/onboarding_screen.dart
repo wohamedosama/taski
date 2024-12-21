@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:taski/constants/shared/shared_preferences.dart';
 import 'package:taski/constants/strings/routes.dart';
+
 import 'package:taski/models/onboarding/onboarding_info.dart';
 import 'package:taski/models/onboarding/onboarding_model.dart';
 import 'package:taski/screens/onBoarding_screen/boarding_item.dart';
@@ -16,6 +18,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   late List<OnboardingModel> boardingList = OnboardingInfo().boarding;
   late PageController pageController = PageController(initialPage: 0);
+
   bool isLastPage = false;
 
   @override
@@ -42,9 +45,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 //! skip button
                 SkipButton(onPressed: () {
-                  Navigator.pushNamed(context, navbar);
+                  SharedPref.saveBool(kOnBaording, false);
 
-                  //pageController.jumpToPage(boardingList.length - 1);
+                  Navigator.pushNamed(context, navbar);
                 }),
 
                 //! boarding item

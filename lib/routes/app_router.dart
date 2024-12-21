@@ -5,6 +5,7 @@ import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/screens/add_task_screen/add_task_screen.dart';
 import 'package:taski/screens/home_screen_details/home_screen_details.dart';
 import 'package:taski/screens/onBoarding_screen/onboarding_screen.dart';
+import 'package:taski/screens/search_screen/search_screen.dart';
 import 'package:taski/widgets/nav_bar/nav_bar.dart';
 
 class AppRouters {
@@ -30,6 +31,8 @@ class AppRouters {
       case homeScreenDetails:
         return MaterialPageRoute(
             builder: (context) => const HomeScreenDetails());
+      case searchScreen:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
     }
   }
 }

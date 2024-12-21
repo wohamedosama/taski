@@ -16,8 +16,16 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController searchController = TextEditingController();
-  List<TaskModel> searcehdTasks = [];
+  List<TaskModel>? searcehdTasks;
 
+  /// ***********  ✨ Codeium Command ⭐  ************
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+  /// ****  170e54e8-70d0-4759-835c-2671bd304c2d  ******
   @override
   Widget build(BuildContext context) {
     List<TaskModel>? tasks = BlocProvider.of<GetTasksCubit>(context).tasks;
@@ -34,11 +42,12 @@ class _SearchScreenState extends State<SearchScreen> {
             SearchBarInHomeScreen(
               controller: searchController,
               onChanged: (searchedTasks) {
-                searcehdTasks = tasks!
-                    .where((task) =>
-                        task.title.toLowerCase().startsWith(searchedTasks))
-                    .toList();
-                setState(() {});
+                setState(() {
+                  searcehdTasks = tasks!
+                      .where((task) =>
+                          task.title.toLowerCase().contains(searchedTasks))
+                      .toList();
+                });
               },
             ),
             const SizedBox(height: 16),
@@ -52,13 +61,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       },
                       itemBuilder: (context, index) {
                         return TaskCardItem(
-                          task: BlocProvider.of<GetTasksCubit>(context)
-                              .searcehdTasks[index],
+                          task: searcehdTasks![index],
                         );
                       },
-                      itemCount: BlocProvider.of<GetTasksCubit>(context)
-                          .searcehdTasks
-                          .length,
+                      itemCount: searcehdTasks!.length,
                     ),
                   ),
           ],

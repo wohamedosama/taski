@@ -64,7 +64,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     onSaved: (addTaskValue) {
                       title = addTaskValue!;
                     },
-                    autoFoucus: true,
                     hintStyle: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 20),

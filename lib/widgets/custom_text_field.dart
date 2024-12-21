@@ -8,7 +8,6 @@ class CustomTextField extends StatelessWidget {
     this.onSaved,
     this.hintStyle,
     this.mixLins = 1,
-    this.autoFoucus = false,
     this.prefixIcon,
     this.validator,
     this.onChanged,
@@ -19,7 +18,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextStyle? hintStyle;
   final int mixLins;
-  final bool autoFoucus;
+
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
@@ -31,7 +30,6 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       validator: validator,
       onSaved: onSaved,
-      autofocus: autoFoucus,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         hintText: hintText,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taski/constants/shared/shared_preferences.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/widgets/on_boarding/next_button.dart';
 import 'package:taski/widgets/on_boarding/smooth_page_indicator.dart';
@@ -25,6 +26,8 @@ class DotPageIndicatorAndNextButton extends StatelessWidget {
           isLastPage: isLastPage,
           onPressed: () {
             if (isLastPage) {
+              SharedPref.saveBool(kOnBaording, false);
+
               Navigator.pushNamed(context, navbar);
             } else {
               pageController.nextPage(
