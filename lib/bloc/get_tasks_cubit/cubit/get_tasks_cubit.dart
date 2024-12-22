@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:taski/constants/shared/shared_preferences.dart';
 import 'package:taski/constants/strings/text.dart';
 import 'package:taski/models/tasks/task_model.dart';
 
@@ -38,5 +39,12 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   void changeAppTheme() {
     isDark = !isDark;
     emit(ChangeAppTheme());
+  }
+
+  Future<void> deleteAllTasksAndSignOut() async {
+    var taskBox = Hive.box<TaskModel>(kTaskBox);
+    await taskBox.clear();
+    SharedPref.clear();
+    emit(DeleteTasksAndLogout());
   }
 }

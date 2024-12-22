@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/models/tasks/task_model.dart';
-import 'package:taski/screens/search_screen/search_screen.dart';
 import 'package:taski/widgets/app_bar_title.dart';
 import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_or_not.dart';
 import 'package:taski/widgets/home_screen/custom_floating_action_button.dart';

@@ -15,11 +15,10 @@ class AppRouters {
     print('Navigating to: ${settings.name}');
     switch (settings.name) {
       case onboardingScreen:
-        return MaterialPageRoute(
-            builder: (context) => const OnboardingScreen());
+        return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case navbar:
         return MaterialPageRoute(
-          builder: (context) => NavBar(),
+          builder: (_) => NavBar(),
         );
       case addTaskScreen:
         return MaterialPageRoute(

@@ -5,16 +5,16 @@ import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
 import 'package:taski/constants/strings/text.dart';
 import 'package:taski/widgets/build_setting_item.dart';
 
-List<BuildSettingItem> buildSettingItemsForAppSettingSections(
-        BuildContext context) =>
-    [
-      BuildSettingItem(
-        title: changeAppTheme,
-        leadingIcon: FontAwesomeIcons.penToSquare,
-        onTap: () {
-          BlocProvider.of<GetTasksCubit>(context).changeAppTheme();
-        },
-      ),
-      const BuildSettingItem(
-          title: changeapplanguage, leadingIcon: FontAwesomeIcons.language),
-    ];
+List<Widget> buildAppSettingsItems(BuildContext context) {
+  return [
+    BuildSettingItem(
+      title: changeAppTheme,
+      leadingIcon: FontAwesomeIcons.penToSquare,
+      onTap: () {
+        BlocProvider.of<GetTasksCubit>(context).changeAppTheme();
+      },
+    ),
+    const BuildSettingItem(
+        title: changeapplanguage, leadingIcon: FontAwesomeIcons.language),
+  ];
+}

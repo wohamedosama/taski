@@ -28,3 +28,5 @@ final class DisplayTaskOnSearchFormField extends GetTasksState {
 }
 
 final class ChangeAppTheme extends GetTasksState {}
+
+final class DeleteTasksAndLogout extends GetTasksState {}
