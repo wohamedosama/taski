@@ -25,7 +25,7 @@ class CalendarTimeLine extends StatelessWidget {
       activeBackgroundDayColor: MyColors.primaryColor,
       dotColor: isDark ? MyColors.lightColor : MyColors.navBarColor,
       dayNameFontSize: 18,
-      selectableDayPredicate: (date) => date.day != 23,
+      //selectableDayPredicate: (date) => date.day != 32,
       locale: 'en_ISO',
     );
   }

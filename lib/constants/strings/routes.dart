@@ -5,3 +5,4 @@ const String customDatePicker = 'customDatePicker';
 const String homeScreenDetails = "homeScreenDetails";
 const String searchScreen = "saerchScreen";
 const String kOnBaording = 'on-boarding';
+const String kIsDark = 'on-boarding';

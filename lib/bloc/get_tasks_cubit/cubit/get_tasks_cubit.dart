@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:taski/constants/shared/shared_preferences.dart';
+import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/constants/strings/text.dart';
 import 'package:taski/models/tasks/task_model.dart';
 
@@ -13,6 +14,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   List<TaskModel>? tasks;
   List<TaskModel> filteredTasks = [];
   List<TaskModel> searcehdTasks = [];
+  bool isDark = false;
 
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
@@ -34,10 +36,14 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     return filteredTasks;
   }
 
-  bool isDark = false;
-
   void changeAppTheme() {
     isDark = !isDark;
+    SharedPref.saveBool(kIsDark, isDark);
+    emit(ChangeAppTheme());
+  }
+
+  Future<void> loadAppTheme() async {
+    isDark = await SharedPref.getBool(kIsDark) ?? false;
     emit(ChangeAppTheme());
   }
 

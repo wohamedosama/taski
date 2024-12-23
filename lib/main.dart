@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
+import 'package:taski/constants/shared/shared_preferences.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/constants/strings/text.dart';
 import 'package:taski/constants/theme/app_theme.dart';
@@ -18,18 +18,16 @@ void main() async {
   FlutterNativeSplash.remove();
   Bloc.observer = MyBlocObserver();
   await Hive.initFlutter();
-
   Hive.registerAdapter(TaskModelAdapter());
   await Hive.openBox<TaskModel>(kTaskBox);
+  final bool isFirstTime = await SharedPref.getBool(kOnBaording) ?? true;
 
-  // Initialize shared preferences
-  final prefs = await SharedPreferences.getInstance();
-  final bool isFirstTime = prefs.getBool(kOnBaording) ?? true;
-
-  runApp(Taski(
-    approuters: AppRouters(),
-    isFirstTime: isFirstTime,
-  ));
+  runApp(
+    Taski(
+      approuters: AppRouters(),
+      isFirstTime: isFirstTime,
+    ),
+  );
 }
 
 class Taski extends StatelessWidget {
@@ -47,7 +45,9 @@ class Taski extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetTasksCubit()..fetchAllTask(),
+      create: (context) => GetTasksCubit()
+        ..fetchAllTask()
+        ..loadAppTheme(),
       child: BlocBuilder<GetTasksCubit, GetTasksState>(
         builder: (context, state) => MaterialApp(
           debugShowCheckedModeBanner: false,
