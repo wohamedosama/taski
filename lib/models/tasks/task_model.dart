@@ -12,10 +12,20 @@ class TaskModel extends HiveObject {
   String date;
   @HiveField(3)
   String time;
+  @HiveField(4)
+  bool? isCompleted;
+  @HiveField(5)
+  bool? isToday;
+  @HiveField(6)
+  int? id;
+
   TaskModel({
     required this.title,
     required this.description,
     required this.date,
     required this.time,
+    this.isCompleted = false,
+    this.isToday = false,
+    this.id,
   });
 }
