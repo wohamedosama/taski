@@ -21,8 +21,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   @override
   void initState() {
-    filteredTasks = BlocProvider.of<GetTasksCubit>(context).filteredTasks;
     super.initState();
+    selectedDataeTime = DateTime.now();
+    BlocProvider.of<GetTasksCubit>(context)
+        .displayTaskOnCalendarScreen(selectedDataeTime!);
   }
 
   @override

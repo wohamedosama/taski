@@ -45,9 +45,7 @@ class Taski extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetTasksCubit()
-        ..fetchAllTask()
-        ..loadAppTheme(),
+      create: (context) => GetTasksCubit()..fetchAllTask(),
       child: BlocBuilder<GetTasksCubit, GetTasksState>(
         builder: (context, state) => MaterialApp(
           debugShowCheckedModeBanner: false,

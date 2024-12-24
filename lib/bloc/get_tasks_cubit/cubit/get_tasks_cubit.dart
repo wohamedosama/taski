@@ -20,7 +20,6 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     tasks = taskBox.values.toList();
     emit(TaskSuccessState(tasks: tasks!));
-
     return tasks!;
   }
 

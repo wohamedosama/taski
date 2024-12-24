@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
 import 'package:taski/constants/strings/routes.dart';
 import 'package:taski/models/tasks/task_model.dart';
+
 import 'package:taski/widgets/app_bar_title.dart';
 import 'package:taski/widgets/home_screen/check_if_there_is_taskin_home_screen_or_not.dart';
 import 'package:taski/widgets/home_screen/custom_floating_action_button.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController searchController = TextEditingController();
+  List<TaskModel> tasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
             //! Check if there is task in home screen or not
             BlocBuilder<GetTasksCubit, GetTasksState>(
               builder: (context, state) {
-                List<TaskModel> tasks = [];
                 if (state is TaskSuccessState) {
                   tasks = state.tasks;
                 }
