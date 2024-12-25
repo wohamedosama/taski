@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
-
-import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/models/tasks/task_model.dart';
+import 'package:taski/widgets/home_screen/delete_tasks_widget.dart';
 import 'package:taski/widgets/home_screen/task_card_item.dart';
 
 class CustomSlidableToDeleteTasks extends StatelessWidget {
@@ -26,15 +23,13 @@ class CustomSlidableToDeleteTasks extends StatelessWidget {
       endActionPane: ActionPane(
         dismissible: DismissiblePane(
           onDismissed: () {
-            tasks[index].delete();
-            BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
+            BlocProvider.of<GetTasksCubit>(context).deleteTask(index);
           },
         ),
         motion: const BehindMotion(),
         children: [
           slidableActionToDeleteTheTasks(tasks, (context) {
             BlocProvider.of<GetTasksCubit>(context).deleteTask(index);
-            //   BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
           }, index)
         ],
       ),
@@ -43,20 +38,4 @@ class CustomSlidableToDeleteTasks extends StatelessWidget {
       ),
     );
   }
-}
-
-SlidableAction slidableActionToDeleteTheTasks(
-  List<TaskModel> tasks,
-  void Function(BuildContext)? onPressed,
-  int index,
-) {
-  return SlidableAction(
-    borderRadius: BorderRadius.circular(4),
-    autoClose: true,
-    onPressed: onPressed,
-    backgroundColor: MyColors.deleteItem,
-    foregroundColor: MyColors.lightColor,
-    icon: FontAwesomeIcons.trash,
-    label: 'Delete',
-  );
 }

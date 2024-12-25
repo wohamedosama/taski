@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/models/tasks/task_model.dart';
+import 'package:taski/widgets/home_screen/edit_task_button.dart';
 
 class TaskCardItem extends StatelessWidget {
   const TaskCardItem({
@@ -58,13 +58,3 @@ class TaskCardItem extends StatelessWidget {
     );
   }
 }
-
-Widget editTaskButton({
-  void Function()? onPressed,
-}) =>
-    IconButton(
-      onPressed: onPressed,
-      icon: const Icon(
-        FontAwesomeIcons.penToSquare,
-      ),
-    );
