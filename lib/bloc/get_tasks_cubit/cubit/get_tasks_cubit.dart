@@ -39,7 +39,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     await taskBox.deleteAt(index);
     emit(RemoveTasksSuccessState());
-    fetchAllTask(); // Refresh the task list
+    fetchAllTask();
   }
 
   void changeAppTheme() {
