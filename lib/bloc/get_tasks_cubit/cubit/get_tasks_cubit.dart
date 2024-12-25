@@ -19,7 +19,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     tasks = taskBox.values.toList();
-    emit(TaskSuccessState(tasks: tasks!));
+    emit(GetTaskSuccessState(tasks: tasks!));
     return tasks!;
   }
 
@@ -33,6 +33,13 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     emit(DisplayTaskOnCalendarScreen(filteredTasks: filteredTasks));
 
     return filteredTasks;
+  }
+
+  Future<void> deleteTask(int index) async {
+    var taskBox = Hive.box<TaskModel>(kTaskBox);
+    await taskBox.deleteAt(index);
+    emit(RemoveTasksSuccessState());
+    fetchAllTask(); // Refresh the task list
   }
 
   void changeAppTheme() {

@@ -7,9 +7,9 @@ final class GetTasksInitial extends GetTasksState {}
 
 final class TaskLoadingState extends GetTasksState {}
 
-final class TaskSuccessState extends GetTasksState {
+final class GetTaskSuccessState extends GetTasksState {
   final List<TaskModel> tasks;
-  TaskSuccessState({required this.tasks});
+  GetTaskSuccessState({required this.tasks});
 }
 
 final class TaskFailureState extends GetTasksState {
@@ -28,5 +28,7 @@ final class DisplayTaskOnSearchFormField extends GetTasksState {
 }
 
 final class ChangeAppTheme extends GetTasksState {}
+
+final class RemoveTasksSuccessState extends GetTasksState {}
 
 final class DeleteTasksAndLogout extends GetTasksState {}

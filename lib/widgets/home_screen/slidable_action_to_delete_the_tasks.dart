@@ -33,8 +33,8 @@ class CustomSlidableToDeleteTasks extends StatelessWidget {
         motion: const BehindMotion(),
         children: [
           slidableActionToDeleteTheTasks(tasks, (context) {
-            tasks[index].delete();
-            BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
+            BlocProvider.of<GetTasksCubit>(context).deleteTask(index);
+            //   BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
           }, index)
         ],
       ),

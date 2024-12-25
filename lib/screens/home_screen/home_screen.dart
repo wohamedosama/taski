@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //! Check if there is task in home screen or not
             BlocBuilder<GetTasksCubit, GetTasksState>(
               builder: (context, state) {
-                if (state is TaskSuccessState) {
+                if (state is GetTaskSuccessState) {
                   tasks = state.tasks;
                 }
                 return tasks.isEmpty
