@@ -15,6 +15,8 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   List<TaskModel> filteredTasks = [];
   List<TaskModel> searcehdTasks = [];
   bool isDark = false;
+  bool isCompleted = false;
+  IconData checkIcon = Icons.radio_button_unchecked;
 
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
@@ -40,6 +42,15 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     await taskBox.deleteAt(index);
     emit(RemoveTasksSuccessState());
     fetchAllTask();
+  }
+
+  Future<void> checkIfTaksComplete(int index) async {
+    var taskBox = Hive.box<TaskModel>(kTaskBox);
+    TaskModel task = taskBox.getAt(index)!;
+    task.isCompleted = !task.isCompleted!;
+    // isCompleted ? Icons.radio_button_checked : Icons.radio_button_unchecked;
+    await taskBox.putAt(index, task);
+    emit(CheckIfTaskCompletetOrNotstate());
   }
 
   void changeAppTheme() {

@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:taski/constants/colors/my_colors.dart';
 import 'package:taski/models/tasks/task_model.dart';
+import 'package:taski/widgets/home_screen/build_button_to_check_the_task_completed_or_now.dart';
 import 'package:taski/widgets/home_screen/edit_task_button.dart';
 
 class TaskCardItem extends StatelessWidget {
-  const TaskCardItem({
-    super.key,
-    this.isHomeScreen = false,
-    this.onPressed,
-    required this.task,
-  });
+  const TaskCardItem(
+      {super.key,
+      this.isHomeScreen = false,
+      this.onPressed,
+      required this.task,
+      this.onTap,
+      this.isCompleted = false});
 
   final bool isHomeScreen;
   final void Function()? onPressed;
   final TaskModel task;
+  final void Function()? onTap;
+  final bool isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +30,8 @@ class TaskCardItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(Icons.circle_outlined,
-              color: MyColors.lightColor, size: 24),
+          BuildButtonToCheckIfTheTaskCompletedOrNot(
+              isCompleted: isCompleted, onTap: onTap),
           const SizedBox(width: 16),
           Expanded(
             child: Column(

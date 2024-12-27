@@ -35,6 +35,10 @@ class CustomSlidableToDeleteTasks extends StatelessWidget {
       ),
       child: TaskCardItem(
         task: tasks[index],
+        isCompleted: tasks[index].isCompleted!,
+        onTap: () {
+          BlocProvider.of<GetTasksCubit>(context).checkIfTaksComplete(index);
+        },
       ),
     );
   }

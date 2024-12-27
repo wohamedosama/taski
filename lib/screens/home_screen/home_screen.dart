@@ -48,7 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
                 return tasks.isEmpty
                     ? const CheckIfThereIsTaskInHomeScreenOrNot()
-                    : CustomListToViewTasks(tasks: tasks);
+                    : CustomListToViewTasks(
+                        tasks: tasks,
+                      );
               },
             ),
             const SizedBox(height: 8),

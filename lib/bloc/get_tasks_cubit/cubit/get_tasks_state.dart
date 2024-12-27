@@ -32,3 +32,5 @@ final class ChangeAppTheme extends GetTasksState {}
 final class RemoveTasksSuccessState extends GetTasksState {}
 
 final class DeleteTasksAndLogout extends GetTasksState {}
+
+final class CheckIfTaskCompletetOrNotstate extends GetTasksState {}
