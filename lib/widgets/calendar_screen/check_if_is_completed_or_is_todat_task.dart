@@ -1,52 +1,29 @@
 import 'package:flutter/material.dart';
 
+import 'package:taski/constants/colors/my_colors.dart';
+
 class CheckIfTheTaskISTodayOrIsCompleted extends StatelessWidget {
   const CheckIfTheTaskISTodayOrIsCompleted({
     super.key,
+    this.isCompleted = true,
+    this.onPressed,
   });
-
-  // bool isCompleted = false;
-  // bool isToday =false;
+  final bool isCompleted;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: ElevatedButton(
-            // style: ElevatedButton.styleFrom(
-            //   backgroundColor: isToday
-            //       ? MyColors.primaryColor
-            //       : MyColors.navBarColor,
-            //   side: BorderSide(
-            //       color: isToday
-            //           ? MyColors.primaryColor
-            //           : MyColors.darkGray),
-            // ),
-            onPressed: () {
-              // setState(() {
-              //   isToday = !isToday;
-              // });
-            },
-            child: const Text('Today'),
-          ),
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: ElevatedButton(
-            // style: ElevatedButton.styleFrom(
-            //   backgroundColor: isCompleted
-            //       ? MyColors.primaryColor
-            //       : MyColors.navBarColor,
-            //   side: BorderSide(
-            //       color: isCompleted
-            //           ? MyColors.primaryColor
-            //           : MyColors.darkGray),
-            // ),
-            onPressed: () {
-              // setState(() {
-              //   isCompleted = !isCompleted;
-              // });
-            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor:
+                  isCompleted ? MyColors.primaryColor : MyColors.navBarColor,
+              side: BorderSide(
+                  color:
+                      isCompleted ? MyColors.primaryColor : MyColors.darkGray),
+            ),
+            onPressed: () {},
             child: const Text('Completed'),
           ),
         ),

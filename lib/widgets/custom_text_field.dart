@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.onChanged,
     this.onTap,
+    this.autofocus = false,
   });
   final TextEditingController controller;
   final void Function(String?)? onSaved;
@@ -23,9 +24,11 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
   final Function()? onTap;
+  final bool autofocus;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: autofocus,
       onTap: onTap,
       onChanged: onChanged,
       validator: validator,

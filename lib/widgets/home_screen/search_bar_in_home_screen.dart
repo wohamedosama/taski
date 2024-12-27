@@ -21,6 +21,7 @@ class SearchBarInHomeScreen extends StatelessWidget {
       controller: controller,
       hintText: 'Search for your task...',
       hintStyle: Theme.of(context).textTheme.titleLarge,
+      autofocus: false, // Add this line
     );
   }
 }

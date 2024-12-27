@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:taski/constants/shared/shared_preferences.dart';
 import 'package:taski/constants/strings/routes.dart';
@@ -16,7 +17,6 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   List<TaskModel> searcehdTasks = [];
   bool isDark = false;
   bool isCompleted = false;
-  IconData checkIcon = Icons.radio_button_unchecked;
 
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
@@ -48,7 +48,9 @@ class GetTasksCubit extends Cubit<GetTasksState> {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     TaskModel task = taskBox.getAt(index)!;
     task.isCompleted = !task.isCompleted!;
-    // isCompleted ? Icons.radio_button_checked : Icons.radio_button_unchecked;
+
+    isCompleted = task.isCompleted!;
+
     await taskBox.putAt(index, task);
     emit(CheckIfTaskCompletetOrNotstate());
   }

@@ -18,14 +18,12 @@ class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController searchController = TextEditingController();
   List<TaskModel>? searcehdTasks;
 
-  /// ***********  ✨ Codeium Command ⭐  ************
   @override
   void dispose() {
     searchController.dispose();
     super.dispose();
   }
 
-  /// ****  170e54e8-70d0-4759-835c-2671bd304c2d  ******
   @override
   Widget build(BuildContext context) {
     List<TaskModel>? tasks = BlocProvider.of<GetTasksCubit>(context).tasks;

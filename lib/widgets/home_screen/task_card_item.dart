@@ -5,13 +5,14 @@ import 'package:taski/widgets/home_screen/build_button_to_check_the_task_complet
 import 'package:taski/widgets/home_screen/edit_task_button.dart';
 
 class TaskCardItem extends StatelessWidget {
-  const TaskCardItem(
-      {super.key,
-      this.isHomeScreen = false,
-      this.onPressed,
-      required this.task,
-      this.onTap,
-      this.isCompleted = false});
+  const TaskCardItem({
+    super.key,
+    this.isHomeScreen = false,
+    this.onPressed,
+    required this.task,
+    this.onTap,
+    this.isCompleted = false,
+  });
 
   final bool isHomeScreen;
   final void Function()? onPressed;
