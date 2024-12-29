@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
+import 'package:taski/models/tasks/task_model.dart';
 
 import 'package:taski/widgets/edit_task_screen/cusotm_dialog_to_delete_task.dart';
 import 'package:taski/widgets/edit_task_screen/delete_button.dart';
@@ -17,6 +18,8 @@ class HomeScreenDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<TaskModel> tasks = BlocProvider.of<GetTasksCubit>(context).tasks!;
+
     return Scaffold(
       // ! App bar
       appBar: AppBar(
@@ -37,7 +40,7 @@ class HomeScreenDetails extends StatelessWidget {
             // ! Edit Task Button
             const SizedBox(height: 16),
             //! Edit Time Button
-            const BuildTaskDetailsItem(time: 'Today At 16:45'),
+            BuildTaskDetailsItem(time: tasks[index].time),
             const SizedBox(height: 20),
             // ! Delete Task Button
             DeleteTaskButton(
@@ -56,7 +59,7 @@ class HomeScreenDetails extends StatelessWidget {
                         BlocProvider.of<GetTasksCubit>(context)
                             .deleteTask(index);
                         Navigator.pop(context);
-                        // BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
+
                         Navigator.pop(context);
                       },
                     );

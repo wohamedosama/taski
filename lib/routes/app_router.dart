@@ -30,8 +30,11 @@ class AppRouters {
         );
       case homeScreenDetails:
         final int index = settings.arguments as int;
+
         return MaterialPageRoute(
-            builder: (context) => HomeScreenDetails(index: index));
+            builder: (context) => HomeScreenDetails(
+                  index: index,
+                ));
       case searchScreen:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
     }

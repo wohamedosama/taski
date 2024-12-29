@@ -22,8 +22,10 @@ class CustomListToViewTasks extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Navigator.of(context, rootNavigator: true)
-                  .pushNamed(homeScreenDetails, arguments: index);
+              Navigator.of(context, rootNavigator: true).pushNamed(
+                homeScreenDetails,
+                arguments: index,
+              );
             },
             //  ! try to use flutter_slidable
             child: CustomSlidableToDeleteTasks(
