@@ -21,7 +21,9 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   List<TaskModel> fetchAllTask() {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     tasks = taskBox.values.toList();
+
     emit(GetTaskSuccessState(tasks: tasks!));
+
     return tasks!;
   }
 
@@ -39,6 +41,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
 
   Future<void> deleteTask(int index) async {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
+
     await taskBox.deleteAt(index);
     emit(RemoveTasksSuccessState());
     fetchAllTask();

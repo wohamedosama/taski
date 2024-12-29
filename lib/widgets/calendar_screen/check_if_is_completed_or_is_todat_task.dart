@@ -6,10 +6,9 @@ class CheckIfTheTaskISTodayOrIsCompleted extends StatelessWidget {
   const CheckIfTheTaskISTodayOrIsCompleted({
     super.key,
     this.isCompleted = true,
-    this.onPressed,
   });
   final bool isCompleted;
-  final void Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return Row(

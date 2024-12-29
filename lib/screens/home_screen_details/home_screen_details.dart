@@ -11,7 +11,9 @@ import 'package:taski/widgets/home_screen/build_task_details_item.dart';
 class HomeScreenDetails extends StatelessWidget {
   const HomeScreenDetails({
     super.key,
+    required this.index,
   });
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +53,10 @@ class HomeScreenDetails extends StatelessWidget {
                       // ! I can't delete the task I needed becasue I don't have the task id or index realted to the task from list view
                       //! sorry
                       onDelete: () {
+                        BlocProvider.of<GetTasksCubit>(context)
+                            .deleteTask(index);
                         Navigator.pop(context);
-                        BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
+                        // BlocProvider.of<GetTasksCubit>(context).fetchAllTask();
                         Navigator.pop(context);
                       },
                     );

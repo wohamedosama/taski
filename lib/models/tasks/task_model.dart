@@ -5,19 +5,19 @@ part 'task_model.g.dart';
 @HiveType(typeId: 1)
 class TaskModel extends HiveObject {
   @HiveField(0)
-  String title;
+  final String title;
   @HiveField(1)
-  String description;
+  final String description;
   @HiveField(2)
-  String date;
+  final String date;
   @HiveField(3)
-  String time;
+  final String time;
   @HiveField(4)
   bool? isCompleted;
   @HiveField(5)
-  bool? isToday;
+  final bool? isToday;
   @HiveField(6)
-  int? id;
+  final int? id;
 
   TaskModel({
     required this.title,
@@ -28,4 +28,13 @@ class TaskModel extends HiveObject {
     this.isToday = false,
     this.id,
   });
+  TaskModel decrementAtDataBase() {
+    return TaskModel(
+      title: title,
+      description: description,
+      date: date,
+      time: time,
+      id: id! - 1,
+    );
+  }
 }
