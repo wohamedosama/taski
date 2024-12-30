@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/bloc/add_task_cubit/task_cubit.dart';
 import 'package:taski/constants/strings/routes.dart';
-import 'package:taski/models/tasks/task_model.dart';
 import 'package:taski/screens/add_task_screen/add_task_screen.dart';
 import 'package:taski/screens/home_screen_details/home_screen_details.dart';
 import 'package:taski/screens/onBoarding_screen/onboarding_screen.dart';

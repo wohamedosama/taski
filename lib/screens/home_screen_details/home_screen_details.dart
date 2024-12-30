@@ -52,14 +52,10 @@ class HomeScreenDetails extends StatelessWidget {
                       onCancel: () {
                         Navigator.pop(context);
                       },
-                      // ! Delete Task Function
-                      // ! I can't delete the task I needed becasue I don't have the task id or index realted to the task from list view
-                      //! sorry
                       onDelete: () {
                         BlocProvider.of<GetTasksCubit>(context)
                             .deleteTask(index);
                         Navigator.pop(context);
-
                         Navigator.pop(context);
                       },
                     );
