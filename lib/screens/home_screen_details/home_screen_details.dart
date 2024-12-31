@@ -19,6 +19,7 @@ class HomeScreenDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<TaskModel> tasks = BlocProvider.of<GetTasksCubit>(context).tasks!;
+    var time = tasks[0].time;
 
     return Scaffold(
       // ! App bar
@@ -39,8 +40,11 @@ class HomeScreenDetails extends StatelessWidget {
           children: [
             // ! Edit Task Button
             const SizedBox(height: 16),
+
             //! Edit Time Button
-            BuildTaskDetailsItem(time: tasks[index].time),
+
+            BuildTaskDetailsItem(time: time),
+
             const SizedBox(height: 20),
             // ! Delete Task Button
             DeleteTaskButton(
@@ -55,6 +59,7 @@ class HomeScreenDetails extends StatelessWidget {
                       onDelete: () {
                         BlocProvider.of<GetTasksCubit>(context)
                             .deleteTask(index);
+
                         Navigator.pop(context);
                         Navigator.pop(context);
                       },

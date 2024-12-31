@@ -10,7 +10,6 @@ import 'package:taski/models/tasks/task_model.dart';
 import 'package:taski/widgets/custom_text_field.dart';
 import 'package:taski/widgets/home_screen/custom_date_picker.dart';
 import 'package:taski/widgets/home_screen/custom_timer_picker.dart';
-import 'package:hive/hive.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -117,19 +116,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                                 DateFormat('yyyy-MM-dd hh:mm')
                                     .format(currentDate);
 
-                            // Fetch the last task ID from Hive and increment it
-                            var box = await Hive.openBox<TaskModel>('tasksBox');
-                            int lastId = box.isEmpty ? 0 : box.values.last.id!;
-                            int newId = lastId + 1;
-
                             TaskModel tasks = TaskModel(
                               title: title.toString(),
                               description: descirption.toString(),
                               date: formattedCurrentDate,
                               time: formattedCurrentDate,
-                              id: newId,
                             );
-                            // ignore: use_build_context_synchronously
+
                             BlocProvider.of<AddTaskCubit>(context)
                                 .addTask(tasks);
                           }

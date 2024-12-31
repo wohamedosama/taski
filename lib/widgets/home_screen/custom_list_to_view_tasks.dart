@@ -21,8 +21,8 @@ class CustomListToViewTasks extends StatelessWidget {
         itemCount: tasks.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-              Navigator.of(context, rootNavigator: true).pushNamed(
+            onTap: () async {
+              await Navigator.of(context, rootNavigator: true).pushNamed(
                 homeScreenDetails,
                 arguments: index,
               );
