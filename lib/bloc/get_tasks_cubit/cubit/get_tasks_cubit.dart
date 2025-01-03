@@ -11,6 +11,7 @@ part 'get_tasks_state.dart';
 
 class GetTasksCubit extends Cubit<GetTasksState> {
   GetTasksCubit() : super(GetTasksInitial());
+  TaskModel? taskModel;
 
   List<TaskModel>? tasks;
   List<TaskModel> filteredTasks = [];

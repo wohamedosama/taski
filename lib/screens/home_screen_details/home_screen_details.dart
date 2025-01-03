@@ -18,59 +18,61 @@ class HomeScreenDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<TaskModel> tasks = BlocProvider.of<GetTasksCubit>(context).tasks!;
-    var time = tasks[0].time;
+    return BlocBuilder<GetTasksCubit, GetTasksState>(
+      builder: (context, state) {
+        return Scaffold(
+          // ! App bar
+          appBar: AppBar(
+            leading: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(FontAwesomeIcons.xmark)),
+            ),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ! Edit Task Button
+                const SizedBox(height: 16),
 
-    return Scaffold(
-      // ! App bar
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16),
-          child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(FontAwesomeIcons.xmark)),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // ! Edit Task Button
-            const SizedBox(height: 16),
+                //! Edit Time Button
 
-            //! Edit Time Button
+                const BuildTaskDetailsItem(time: '12:00 PM'),
 
-            BuildTaskDetailsItem(time: time),
+                const SizedBox(height: 20),
+                // ! Delete Task Button
+                DeleteTaskButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return CustomDialogToDeleteTask(
+                          onCancel: () {
+                            Navigator.pop(context);
+                          },
+                          onDelete: () {
+                            BlocProvider.of<GetTasksCubit>(context)
+                                .deleteTask(index);
 
-            const SizedBox(height: 20),
-            // ! Delete Task Button
-            DeleteTaskButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return CustomDialogToDeleteTask(
-                      onCancel: () {
-                        Navigator.pop(context);
-                      },
-                      onDelete: () {
-                        BlocProvider.of<GetTasksCubit>(context)
-                            .deleteTask(index);
-
-                        Navigator.pop(context);
-                        Navigator.pop(context);
+                            Navigator.pop(context);
+                            Navigator.pop(context);
+                          },
+                        );
                       },
                     );
                   },
-                );
-              },
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
