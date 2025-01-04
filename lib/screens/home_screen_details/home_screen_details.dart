@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:taski/bloc/get_tasks_cubit/cubit/get_tasks_cubit.dart';
-import 'package:taski/models/tasks/task_model.dart';
-
 import 'package:taski/widgets/edit_task_screen/cusotm_dialog_to_delete_task.dart';
 import 'package:taski/widgets/edit_task_screen/delete_button.dart';
 import 'package:taski/widgets/home_screen/build_task_details_item.dart';

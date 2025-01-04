@@ -34,7 +34,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
-  flutter_launcher_icons: ^0.14.2
+  flutter_launcher_icons: ^0.14.1
   flutter_native_splash: ^2.4.2
   flutter_slidable: ^3.1.1
   font_awesome_flutter: ^10.8.0
@@ -55,7 +55,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "/assets/images/splash/splash3.png"
+  image_path: "assets/images/splash/splash2.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
